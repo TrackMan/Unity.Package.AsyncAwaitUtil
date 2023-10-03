@@ -31,7 +31,7 @@ namespace UnityAsyncAwaitUtil
             {
                 if (Application.isPlaying)
                 {
-                    if (_instance == null || _instance is not AsyncCoroutineRunner)
+                    if (_instance == null || !(_instance is AsyncCoroutineRunner))
                     {
                         _instance = new GameObject("AsyncCoroutineRunner").AddComponent<AsyncCoroutineRunner>();
                     }
@@ -39,7 +39,7 @@ namespace UnityAsyncAwaitUtil
                 else
                 {
 #if UNITY_EDITOR
-                    if (_instance == null || _instance is not EditorAsyncCoroutineRunner)
+                    if (_instance == null || !(_instance is EditorAsyncCoroutineRunner))
                     {
                         _instance = new EditorAsyncCoroutineRunner();
                     }
